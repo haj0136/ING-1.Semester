@@ -14,10 +14,10 @@ namespace CV_1
     {
         static void Main(string[] args)
         {
-            const int NoUrls = 500; // 3308 MAX
+            const int NoUrls = 3308; // 3308 MAX
 
             Stopwatch sw = new Stopwatch();
-
+            ServicePointManager.DefaultConnectionLimit = 400;
             sw.Start();
             ParalelDownloader downloader = new ParalelDownloader(NoUrls);
             List<PersonWrapper> people = downloader.StartDownloading();
@@ -26,10 +26,10 @@ namespace CV_1
 
             Console.WriteLine(sw.Elapsed.TotalSeconds);
 
-            //foreach (var item in people)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
+            foreach (var item in people)
+            {
+                Console.WriteLine(item.ToString());
+            }
 
 
             /*
