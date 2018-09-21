@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,23 +14,40 @@ namespace CV_1
     {
         static void Main(string[] args)
         {
-            const int NoUrls = 3308;
-            const string URL = "http://name-service.appspot.com/api/v1/names/";
+            const int NoUrls = 500; // 3308 MAX
 
-            Task[] tasks = new Task[NoUrls];
+            Stopwatch sw = new Stopwatch();
 
-            for (int i = 0; i <= NoUrls; i++)
-            {
-                tasks[i] = Task.Factory.StartNew( state =>
-                {
-                    using (var client = new WebClient())
-                    {
+            sw.Start();
+            ParalelDownloader downloader = new ParalelDownloader(NoUrls);
+            List<PersonWrapper> people = downloader.StartDownloading();
 
-                    }
-                }, )
-            }
+            sw.Stop();
 
-            Task.WaitAll(tasks);
+            Console.WriteLine(sw.Elapsed.TotalSeconds);
+
+            //foreach (var item in people)
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+
+
+            /*
+            Person person = new Person();
+            person.GivenName = "Edward";
+            person.Id = "Zwick";
+            person.Roles = "D";
+            person.FamilyName = "Zwick";
+
+            MemoryStream stream = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Person));
+            ser.WriteObject(stream, person);
+
+            stream.Position = 0;
+            StreamReader sr = new StreamReader(stream);
+            Console.Write("JSON form of Person object: ");
+            Console.WriteLine(sr.ReadToEnd());
+            */
 
         }
     }
