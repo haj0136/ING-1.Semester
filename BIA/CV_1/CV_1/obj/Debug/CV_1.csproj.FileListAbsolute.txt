@@ -1,0 +1,7 @@
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\bin\Debug\CV_1.exe.config
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\bin\Debug\CV_1.exe
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\bin\Debug\CV_1.pdb
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\obj\Debug\CV_1.csprojAssemblyReference.cache
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\obj\Debug\CV_1.csproj.CoreCompileInputs.cache
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\obj\Debug\CV_1.exe
+C:\Users\Marek\source\repos\ING-1.Semester\BIA\CV_1\CV_1\obj\Debug\CV_1.pdb
