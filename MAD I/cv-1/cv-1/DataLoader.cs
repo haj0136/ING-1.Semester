@@ -34,7 +34,7 @@ Sunny, Mild, High, TRUE, No";
                 forecastRow.Outlook = (Outlook)Enum.Parse(typeof(Outlook), attributes[0]);
                 forecastRow.Temperature = (Temperature)Enum.Parse(typeof(Temperature), attributes[1]);
                 forecastRow.Humidity = (Humidity)Enum.Parse(typeof(Humidity), attributes[2]);
-                forecastRow.Windy = Boolean.Parse(attributes[3]);
+                forecastRow.Windy = (Windy)Enum.Parse(typeof(Windy) ,attributes[3]);
                 forecastRow.Play = (Play)Enum.Parse(typeof(Play), attributes[4]);
                 forecastData.Add(forecastRow);
             }

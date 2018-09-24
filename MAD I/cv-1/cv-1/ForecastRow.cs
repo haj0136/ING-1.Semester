@@ -11,27 +11,40 @@ namespace cv_1
         public Outlook Outlook { get; set; }
         public Temperature Temperature { get; set; }
         public Humidity Humidity { get; set; }
-        public bool Windy { get; set; }
+        public Windy Windy { get; set; }
         public Play Play { get; set; }
 
+        public override string ToString()
+        {
+            return Outlook + ", " + Temperature + ", " + Humidity + ", " + Windy + ", " + Play;
+        }
     }
 
     public enum Outlook
     {
         Rainy,
         Overcast,
-        Sunny
+        Sunny,
+        None
     }
     public enum Temperature
     {
         Hot,
         Mild,
-        Cool
+        Cool,
+        None
     }
     public enum Humidity
     {
         High,
-        Normal
+        Normal,
+        None
+    }
+    public enum Windy
+    {
+        True,
+        False,
+        None
     }
     public enum Play
     {
