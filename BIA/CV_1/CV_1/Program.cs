@@ -25,10 +25,10 @@ namespace CV_1
             {
                 cities = cities.Replace(firstNode.ToString(), string.Empty);
             }
-            //if (step == cities.Length)
-            //{
-            //    Console.WriteLine(firstNode + cities);
-            //}
+            if (step == cities.Length)
+            {
+                Console.WriteLine(firstNode + cities);
+            }
 
             foreach (int i in Enumerable.Range(step, cities.Length - step)){
 
