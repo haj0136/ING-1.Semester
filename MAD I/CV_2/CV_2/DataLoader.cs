@@ -13,7 +13,7 @@ namespace CV_2
         public List<Iris> LoadData()
         {
             List<Iris> IrisDataSet = new List<Iris>();
-            List<string> rows = LoadCsvFile("iris.data");
+            List<string> rows = LoadCsvFile("iris.data.txt");
             foreach (string row in rows)
             {
                 Iris dataRow = new Iris();
