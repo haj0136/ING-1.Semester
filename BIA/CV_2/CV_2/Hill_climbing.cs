@@ -9,5 +9,14 @@ namespace CV_2
     class Hill_climbing
     {
 
+        public double Start(double[] startingPoint)
+        {
+
+            double result = Functions.SphereFunction(startingPoint);
+
+
+
+            return result;
+        }
     }
 }
