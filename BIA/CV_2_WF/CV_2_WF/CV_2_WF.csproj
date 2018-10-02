@@ -58,8 +58,10 @@
     <Compile Include="Functions.cs" />
     <Compile Include="Functions\AbstractFunction.cs" />
     <Compile Include="Functions\AckleyFunction.cs" />
+    <Compile Include="Functions\RastriginFunction.cs" />
     <Compile Include="Functions\SchwefelFunction.cs" />
     <Compile Include="Functions\SphereFunction.cs" />
+    <Compile Include="HelpTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Functions\RosenbrockFunction.cs" />
