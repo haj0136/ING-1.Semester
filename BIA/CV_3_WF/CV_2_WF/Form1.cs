@@ -1,0 +1,149 @@
+﻿using CV_3_WF.Algorithms;
+using CV_3_WF.Functions;
+using ILNumerics.Drawing;
+using ILNumerics.Drawing.Plotting;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CV_3_WF
+{
+    public partial class Form1 : Form
+    {
+
+        ILGroup plotCube;
+        ILSurface surface;
+        List<ILPoints> listOfPoints;
+
+        List<AbstractFunction> testFunctions;
+        List<IAlgorithm> algorithms;
+
+
+        Random rnd;
+        public Form1()
+        {
+            InitializeComponent();
+
+            testFunctions = new List<AbstractFunction>();
+            algorithms = new List<IAlgorithm>();
+            listOfPoints = new List<ILPoints>();
+            rnd = new Random();
+
+            plotCube = new ILPlotCube();
+            var scene = new ILScene
+            {
+                plotCube,
+            };
+
+            var panel = new ILPanel
+            {
+                Scene = scene,
+            };
+
+            panel1.Controls.Add(panel);
+
+            InicializeFunctions();
+            InicializeAlgorithms();
+
+
+        }
+
+        public void InicializeFunctions()
+        {
+            functionsComboBox.Items.Add("Sphere Function");
+            testFunctions.Add(new SphereFunction());
+            functionsComboBox.Items.Add("Rosenbrock Function");
+            testFunctions.Add(new RosenbrockFunction());
+            functionsComboBox.Items.Add("Ackley Function");
+            testFunctions.Add(new AckleyFunction());
+            functionsComboBox.Items.Add("Schwefel Function");
+            testFunctions.Add(new SchwefelFunction());
+            functionsComboBox.Items.Add("Rastrigin Function");
+            testFunctions.Add(new RastriginFunction());
+
+
+
+
+            functionsComboBox.SelectedIndexChanged += RefreshFunction;
+            functionsComboBox.SelectedIndex = 0;
+        }
+
+        public void InicializeAlgorithms()
+        {
+            algorithmsComboBox.Items.Add("Hill Climbing");
+            algorithms.Add(new HillClimbing());
+
+            algorithmsComboBox.SelectedIndex = 0;
+            algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
+        }
+
+        private void RefreshFunction(object sender, EventArgs e)
+        {
+            int index = functionsComboBox.SelectedIndex;
+            var testFunction = GetSelectedFunction();
+
+            var surface = new ILSurface((x, y) => (float)testFunction.getResult(x, y),
+                xmin: testFunction.MinX, xmax: testFunction.MaxX, ymax: testFunction.MaxY, ymin: testFunction.MinY, xlen:100 , ylen:100);
+
+            if (this.surface != null)
+            {
+                plotCube.Remove(this.surface);
+                this.surface.Dispose();
+            }
+
+            plotCube.Add(surface);
+            this.surface = surface;
+
+            RemoveAllPoints();
+
+            panel1.Refresh();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            RemoveAllPoints();
+            // number of iterations (NUD = numericUpDown)
+            int iterations = (int)iterationsNUD.Value;
+            var testFunction = GetSelectedFunction();
+
+            IAlgorithm selectedAlgorithm = GetSelectedAlgorithm();
+
+            float[,] lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, panel1, listOfPoints);
+
+
+            Console.WriteLine("x1 = " + lastNode[0, 0] + " x2 = " + lastNode[0, 1] + " x3 = " + (lastNode[0, 2] - 500));
+        }
+
+        private AbstractFunction GetSelectedFunction()
+        {
+            int index = functionsComboBox.SelectedIndex;
+            return testFunctions[index];
+        }
+
+        private IAlgorithm GetSelectedAlgorithm()
+        {
+            int index = algorithmsComboBox.SelectedIndex;
+            return algorithms[index];
+        }
+
+        private void RemoveAllPoints()
+        {
+            foreach (var item in listOfPoints)
+            {
+                if (item == null)
+                    continue;
+                plotCube.Remove(item);
+                item.Dispose();
+            }
+            listOfPoints.Clear();
+        }
+
+    }
+}
