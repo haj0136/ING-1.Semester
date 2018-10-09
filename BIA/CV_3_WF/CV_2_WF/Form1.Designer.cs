@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.functionsComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,13 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.algorithmsComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxAverageValue = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioButtonShowInGraph = new System.Windows.Forms.RadioButton();
             this.radioButtonShowAverageRes = new System.Windows.Forms.RadioButton();
             this.radioButtonsPanel = new System.Windows.Forms.Panel();
-            this.textBoxAverageValue = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iterationsNUD)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -154,6 +155,24 @@
             this.panel2.Size = new System.Drawing.Size(822, 637);
             this.panel2.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(163, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Average value";
+            // 
+            // textBoxAverageValue
+            // 
+            this.textBoxAverageValue.Location = new System.Drawing.Point(162, 23);
+            this.textBoxAverageValue.Name = "textBoxAverageValue";
+            this.textBoxAverageValue.ReadOnly = true;
+            this.textBoxAverageValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAverageValue.TabIndex = 1;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -207,24 +226,6 @@
             this.radioButtonsPanel.Size = new System.Drawing.Size(140, 66);
             this.radioButtonsPanel.TabIndex = 10;
             // 
-            // textBoxAverageValue
-            // 
-            this.textBoxAverageValue.Location = new System.Drawing.Point(162, 23);
-            this.textBoxAverageValue.Name = "textBoxAverageValue";
-            this.textBoxAverageValue.ReadOnly = true;
-            this.textBoxAverageValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxAverageValue.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(163, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Average value";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,9 +241,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.functionsComboBox);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Biologically inspired algorithms";
             ((System.ComponentModel.ISupportInitialize)(this.iterationsNUD)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

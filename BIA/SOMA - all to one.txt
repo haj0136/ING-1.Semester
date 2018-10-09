@@ -1,0 +1,6 @@
+SOMA - all to one
+path lenght = 3,0
+step size = 0,11
+PRT = 0,1 (pri dvou dimenzích nastavit na 0,5)
+populace = 10 jedincù
+
