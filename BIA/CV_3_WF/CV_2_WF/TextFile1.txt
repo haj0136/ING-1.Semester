@@ -1,6 +1,7 @@
 ﻿30x pro kazdou funkci spustime obe metody metody zprumerujeme a
-porovnavame kde je lepsi hodnota pro dany prumer prvni populace by mela byt stejna pro dve dimenze
-muzu funkci pro evaulaci zavolat 2000
+porovnavame kde je lepsi hodnota pro dany prumer
+prvni populace by mela byt stejna
+pro dve dimenze muzu funkci pro evaulaci zavolat 2000
 
 na zacatek zvolim t0 = 2000 vygeneruju random x0 = [3,3] (fx=18) (dejong) vygeneruju x1 pokud je lepsi, tak ho beru (stane se novym vychozim bodem)
 a vynasobim teplotu alfou (0.99) pokud je horsi random mezi <0,1> r< e na minus delta f lomeno T pokud je podminka pravdiva, tak ho beru

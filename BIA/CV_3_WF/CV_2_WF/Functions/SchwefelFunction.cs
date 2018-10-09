@@ -8,7 +8,7 @@ namespace CV_3_WF.Functions
 {
     class SchwefelFunction : AbstractFunction
     {
-        public SchwefelFunction() : base(-5f, 10f)
+        public SchwefelFunction() : base(-500f, 500f)
         {
 
         }

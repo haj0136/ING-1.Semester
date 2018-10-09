@@ -9,9 +9,9 @@ namespace CV_3_WF
 {
     public static class PopulationGenerator
     {
+        private static Random rnd = new Random();
         public static float[,] GeneratePopulation(int sizeOfPopulation, AbstractFunction testFunction, params float[] mainNode)
         {
-            Random rnd = new Random();
             List<float[]> result = new List<float[]>();
             for (int i = 0; i < sizeOfPopulation; i++)
             {

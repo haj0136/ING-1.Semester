@@ -51,7 +51,8 @@ namespace CV_3_WF
 
             InicializeFunctions();
             InicializeAlgorithms();
-
+            radioButtonShowInGraph.CheckedChanged += ShowSelectedPanel;
+            radioButtonShowInGraph.Select();
 
         }
 
@@ -79,7 +80,9 @@ namespace CV_3_WF
         {
             algorithmsComboBox.Items.Add("Hill Climbing");
             algorithms.Add(new HillClimbing());
-
+            algorithmsComboBox.Items.Add("Simulated Annealing");
+            algorithms.Add(new SimulatedAnnealing());
+            
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
         }
@@ -112,10 +115,27 @@ namespace CV_3_WF
             // number of iterations (NUD = numericUpDown)
             int iterations = (int)iterationsNUD.Value;
             var testFunction = GetSelectedFunction();
+            dataGridView1.Rows.Clear();
 
             IAlgorithm selectedAlgorithm = GetSelectedAlgorithm();
+            float[,] lastNode = null;
 
-            float[,] lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, panel1, listOfPoints);
+            if (radioButtonShowInGraph.Checked == true)
+            {
+                lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, panel1, listOfPoints);
+            }
+            else
+            {
+                List<float> results = new List<float>();
+                for (int i = 0; i < 30; i++)
+                {
+                    lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, null, listOfPoints);
+                    dataGridView1.Rows.Add(lastNode[0, 2] - 500);
+                    dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+                    results.Add(lastNode[0, 2] - 500);
+                }
+                textBoxAverageValue.Text = (results.Sum() / results.Count).ToString();
+            }
 
 
             Console.WriteLine("x1 = " + lastNode[0, 0] + " x2 = " + lastNode[0, 1] + " x3 = " + (lastNode[0, 2] - 500));
@@ -143,6 +163,18 @@ namespace CV_3_WF
                 item.Dispose();
             }
             listOfPoints.Clear();
+        }
+
+        private void ShowSelectedPanel(object sender, EventArgs e)
+        {
+            if(radioButtonShowInGraph.Checked == true)
+            {
+                panel1.BringToFront();
+            } else
+            {
+                panel2.BringToFront();
+            }
+
         }
 
     }
