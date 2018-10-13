@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Centralities.cs" />
     <Compile Include="DataLoader.cs" />
+    <Compile Include="FloydWarshallAlgorithm.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="GraphNode.cs" />
     <Compile Include="Program.cs" />

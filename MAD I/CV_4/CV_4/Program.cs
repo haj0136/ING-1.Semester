@@ -40,21 +40,27 @@ namespace CV_4
             int[,] matrix = new int[numberOfNodes, numberOfNodes];
             matrix = dt.LoadDataToMatrix(matrix);
 
-            //vypis
-            /*
-            for (int i = 0; i < numberOfNodes; i++)
+            //PrintMatrix(matrix);
+
+            int[,] matrixOfShortestPaths = FloydWarshallAlgorithm.GetResult(matrix);
+
+            PrintMatrix(matrixOfShortestPaths);
+            Centralities.GetClosenessCentrality(matrixOfShortestPaths);
+        }
+
+        static void PrintMatrix(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < numberOfNodes; j++)
+                for (int j = 0; j < matrix.GetLength(0); j++)
                 {
                     Console.Write(matrix[i, j]);
                     Console.Write(" ");
                 }
                 Console.WriteLine();
             }
-            */
 
-
-
+            Console.WriteLine();
         }
     }
 }
