@@ -92,7 +92,7 @@ namespace CV_4_WF.Algorithms
 
                     if(panel1 != null)
                     {
-                        Thread.Sleep(300);
+                        Thread.Sleep(200);
                         plotCube.Remove(points);
                         points.Dispose();
                         panel1.Refresh();
