@@ -33,21 +33,21 @@ namespace Cv_5
             graph.AverageDegree /= graph.NodeList.Count;
 
             Console.WriteLine(graph.AverageDegree);
+            Console.WriteLine();
 
             for (int i = 0; i < graph.NodeList.Count; i++)
             {
-                Console.WriteLine("Node: " + (i + 1) + ", degree =  " + graph.NodeList[i].Degree);
-            }
-
-            for (int i = 0; i < graph.NodeList.Count; i++)
-            {
-                var subGraph = new List<GraphNode>(graph.NodeList[i].Neighbours);
+                var subGraph = new List<GraphNode>();
+                foreach (var node in graph.NodeList[i].Neighbours)
+                {
+                    subGraph.Add(new GraphNode(node));
+                }
                 int edgesCount = 0;
                 for (int j = 0; j < subGraph.Count; j++)
                 {
-                    for (int k = 0; k < subGraph[j].Neighbours.Count; k++)
+                    for (int k = subGraph[j].Neighbours.Count - 1; k > -1; k--)
                     {
-                        if (!graph.NodeList[i].Neighbours.Contains(subGraph[j].Neighbours[k]))
+                        if (!subGraph.Contains(subGraph[j].Neighbours[k]))
                         {
                             subGraph[j].Neighbours.Remove(subGraph[j].Neighbours[k]);
                         }
@@ -59,10 +59,27 @@ namespace Cv_5
                     edgesCount += subGraph[j].Neighbours.Count;
                 }
 
-                edgesCount /= 2;
+                float result = ((float)edgesCount) / (subGraph.Count * (subGraph.Count - 1));
+                if (!float.IsNaN(result))
+                {
+                    graph.NodeList[i].ClusteringCoeficient = result;
+                }
+                else
+                {
+                    graph.NodeList[i].ClusteringCoeficient = 0;
+                }
 
-                //graph.NodeList[i].ClusteringCoeficient = 
             }
+            for (int i = 0; i < graph.NodeList.Count; i++)
+            {
+                Console.WriteLine("Node: " + (i + 1) + ", degree =  " + graph.NodeList[i].Degree + ", CC = " + graph.NodeList[i].ClusteringCoeficient);
+                graph.AverageCC += graph.NodeList[i].ClusteringCoeficient;
+            }
+            graph.AverageCC /= graph.NodeList.Count;
+            Console.WriteLine();
+            Console.WriteLine("Average clustering coificient =  {0}", graph.AverageCC);
+
+            graph.WriteToCSV("statistics.csv");
         }
     }
 }
