@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CV_4_WF.Functions;
-using CV_4_WF.SOTA;
+using CV_4_WF.SOMA;
 using ILNumerics.Drawing;
 
 namespace CV_4_WF.Algorithms

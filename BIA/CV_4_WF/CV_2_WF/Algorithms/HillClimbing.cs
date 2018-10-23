@@ -48,7 +48,7 @@ namespace CV_4_WF.Algorithms
                     panel1.Refresh();
                     listOfPoints.Add(points);
                 }
-                population = PopulationGenerator.GeneratePopulation(1, testFunction, actualNode[0, 0], actualNode[0, 1]);
+                population = PopulationGenerator.GeneratePopulation(20, testFunction, actualNode[0, 0], actualNode[0, 1]);
 
                 // Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
 

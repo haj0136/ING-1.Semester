@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CV_4_WF.SOTA
+namespace CV_4_WF.SOMA
 {
     public class Node
     {

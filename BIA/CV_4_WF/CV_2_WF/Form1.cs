@@ -83,7 +83,9 @@ namespace CV_4_WF
             algorithmsComboBox.Items.Add("Simulated Annealing");
             algorithms.Add(new SimulatedAnnealing());
             algorithmsComboBox.Items.Add("SOMA");
-            algorithms.Add(new SOMA());
+            algorithms.Add(new Algorithms.SOMA());
+            algorithmsComboBox.Items.Add("Particle Swarm");
+            algorithms.Add(new ParticleSwarm());
             
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
@@ -124,7 +126,7 @@ namespace CV_4_WF
 
             if (radioButtonShowInGraph.Checked == true)
             {
-                lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, panel1, listOfPoints);
+                lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, panel1, listOfPoints, bestNodeTextBox);
             }
             else
             {
