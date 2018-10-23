@@ -25,7 +25,7 @@ namespace CV_4_WF
                 z1 += mainNode[0];
                 z2 += mainNode[1];
 
-                float[] node = { (float)z1, (float)z2, (float)testFunction.getResult(z1, z2) + 500 };
+                float[] node = { (float)z1, (float)z2, (float)testFunction.getResult(z1, z2) };
 
                 result.Add(node);
             }

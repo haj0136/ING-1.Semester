@@ -9,12 +9,12 @@ namespace CV_4_WF.ParticleSwarm
     public class Population
     {
         public List<Particle> Particles { get; set; }
-        public List<float> GBest { get; set; };
+        public List<float> GBest { get; set; }
 
         public Population()
         {
             Particles = new List<Particle>();
-            GBest = new List<float>();
+            //GBest = new List<float>();
         }
 
         public float[,] To2dArray()

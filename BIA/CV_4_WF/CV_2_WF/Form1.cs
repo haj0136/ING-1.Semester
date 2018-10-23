@@ -85,7 +85,7 @@ namespace CV_4_WF
             algorithmsComboBox.Items.Add("SOMA");
             algorithms.Add(new Algorithms.SOMA());
             algorithmsComboBox.Items.Add("Particle Swarm");
-            algorithms.Add(new ParticleSwarm());
+            algorithms.Add(new Algorithms.ParticleSwarm());
             
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
@@ -120,6 +120,8 @@ namespace CV_4_WF
             int iterations = (int)iterationsNUD.Value;
             var testFunction = GetSelectedFunction();
             dataGridView1.Rows.Clear();
+            bestNodeTextBox.Text = "";
+            bestNodeTextBox.Refresh();
 
             IAlgorithm selectedAlgorithm = GetSelectedAlgorithm();
             float[,] lastNode = null;
@@ -134,9 +136,9 @@ namespace CV_4_WF
                 for (int i = 0; i < 30; i++)
                 {
                     lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, null, listOfPoints, bestNodeTextBox);
-                    dataGridView1.Rows.Add(lastNode[0, 2] - 500);
+                    dataGridView1.Rows.Add(lastNode[0, 2]);
                     dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
-                    results.Add(lastNode[0, 2] - 500);
+                    results.Add(lastNode[0, 2]);
                 }
                 textBoxAverageValue.Text = (results.Sum() / results.Count).ToString();
             }

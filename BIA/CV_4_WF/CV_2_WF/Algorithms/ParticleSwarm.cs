@@ -15,12 +15,14 @@ namespace CV_4_WF.Algorithms
         private readonly Random rnd;
         private readonly int populationSize;
         private readonly int dimensions;
+        private readonly float c1, c2;
 
         public ParticleSwarm()
         {
             rnd = new Random();
             populationSize = 10;
             dimensions = 3;
+            c1 = c2 = 0.2f;
         }
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox outPutTextBox)
         {
@@ -28,6 +30,14 @@ namespace CV_4_WF.Algorithms
             Population population;
 
             population = GenerateFirstPopulation(testFunction);
+
+            for (int i = 0; i < iterations; i++)
+            {
+                for (int j = 0; j < population.Particles.Count; j++)
+                {
+
+                }
+            }
 
             return null;
         }
@@ -43,7 +53,12 @@ namespace CV_4_WF.Algorithms
                 {
                     population.Particles[i].X.Add((float)rnd.NextDouble() * (testFunction.MaxX - testFunction.MinX) + testFunction.MinX);
                 }
-                population.Particles[i].X.Add((float)testFunction.getResult(Array.ConvertAll(population.Nodes[i].X.ToArray(), x => (double)x)));
+                population.Particles[i].X.Add((float)testFunction.getResult(Array.ConvertAll(population.Particles[i].X.ToArray(), x => (double)x)));
+                population.Particles[i].PBest = new List<float>(population.Particles[i].X);
+                if(population.GBest == null || population.GBest[dimensions - 1] > population.Particles[i].X[dimensions - 1])
+                {
+                    population.GBest = new List<float>(population.Particles[i].X);
+                }
             }
 
             return population;

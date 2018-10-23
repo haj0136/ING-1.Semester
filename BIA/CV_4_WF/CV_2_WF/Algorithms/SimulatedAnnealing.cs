@@ -31,7 +31,7 @@ namespace CV_4_WF.Algorithms
             float x1 = (float)rnd.NextDouble() * (testFunction.MaxX - testFunction.MinX) + testFunction.MinX;
             float x2 = (float)rnd.NextDouble() * (testFunction.MaxY - testFunction.MinY) + testFunction.MinY;
 
-            float[,] actualNode = { { x1, x2, (float)testFunction.getResult(x1, x2) + 500 } };
+            float[,] actualNode = { { x1, x2, (float)testFunction.getResult(x1, x2) } };
 
             for (int i = 0; i < iterations; i++)
             {
@@ -92,7 +92,13 @@ namespace CV_4_WF.Algorithms
 
         private void PrintBestNode(TextBox textBox, float[,] bestNode)
         {
-            // evaluation value must be substracted by 500
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bestNode.Length; i++)
+            {
+                sb.Append($" x{i + 1} = {bestNode[0,i]}");
+            }
+
+            textBox.Text = sb.ToString();
         }
     }
 }

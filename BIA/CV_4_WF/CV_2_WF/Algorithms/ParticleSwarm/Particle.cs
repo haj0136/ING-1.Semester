@@ -10,13 +10,12 @@ namespace CV_4_WF.ParticleSwarm
     {
         public List<float> X { get; set; }
         private List<float> speed;
-        private List<float> pBest;
+        public List<float> PBest { get; set; }
 
         public Particle()
         {
             X = new List<float>();
             speed = new List<float>();
-            pBest = new List<float>();
         }
 
         public float[] ToFloatArray()

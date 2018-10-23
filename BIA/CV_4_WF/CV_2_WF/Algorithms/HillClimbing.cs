@@ -14,10 +14,12 @@ namespace CV_4_WF.Algorithms
     public class HillClimbing : IAlgorithm
     {
         private Random rnd;
+        private readonly int dimensions;
 
         public HillClimbing()
         {
             rnd = new Random();
+            dimensions = 3;
         }
 
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
@@ -28,7 +30,7 @@ namespace CV_4_WF.Algorithms
             float x1 = (float)rnd.NextDouble() * (testFunction.MaxX - testFunction.MinX) + testFunction.MinX;
             float x2 = (float)rnd.NextDouble() * (testFunction.MaxY - testFunction.MinY) + testFunction.MinY;
 
-            float[,] actualNode = { { x1, x2, (float)testFunction.getResult(x1, x2) + 500 } };
+            float[,] actualNode = { { x1, x2, (float)testFunction.getResult(x1, x2) } };
 
 
             for (int i = 0; i < iterations; i++)
@@ -75,7 +77,19 @@ namespace CV_4_WF.Algorithms
 
                 //Thread.Sleep(100);
             }
+            PrintBestNode(bestNodeTextBox, actualNode);
             return actualNode;
+        }
+
+        private void PrintBestNode(TextBox textBox, float[,] bestNode)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bestNode.Length; i++)
+            {
+                sb.Append($" x{i + 1} = {bestNode[0, i]}");
+            }
+
+            textBox.Text = sb.ToString();
         }
     }
 }
