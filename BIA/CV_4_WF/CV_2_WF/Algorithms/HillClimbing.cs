@@ -20,7 +20,7 @@ namespace CV_4_WF.Algorithms
             rnd = new Random();
         }
 
-        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints)
+        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
         {
             ILPoints points;
             float[,] population, renderNode;

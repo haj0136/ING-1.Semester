@@ -131,16 +131,13 @@ namespace CV_4_WF
                 List<float> results = new List<float>();
                 for (int i = 0; i < 30; i++)
                 {
-                    lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, null, listOfPoints);
+                    lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, null, listOfPoints, bestNodeTextBox);
                     dataGridView1.Rows.Add(lastNode[0, 2] - 500);
                     dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
                     results.Add(lastNode[0, 2] - 500);
                 }
                 textBoxAverageValue.Text = (results.Sum() / results.Count).ToString();
             }
-
-
-            Console.WriteLine("x1 = " + lastNode[0, 0] + " x2 = " + lastNode[0, 1] + " x3 = " + (lastNode[0, 2]));
         }
 
         private AbstractFunction GetSelectedFunction()

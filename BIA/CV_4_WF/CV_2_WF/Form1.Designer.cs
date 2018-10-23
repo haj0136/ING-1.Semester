@@ -45,6 +45,8 @@
             this.radioButtonShowInGraph = new System.Windows.Forms.RadioButton();
             this.radioButtonShowAverageRes = new System.Windows.Forms.RadioButton();
             this.radioButtonsPanel = new System.Windows.Forms.Panel();
+            this.bestNodeLabel = new System.Windows.Forms.Label();
+            this.bestNodeTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.iterationsNUD)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,7 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(150, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(822, 637);
+            this.panel1.Size = new System.Drawing.Size(822, 611);
             this.panel1.TabIndex = 0;
             // 
             // functionsComboBox
@@ -152,7 +154,7 @@
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(150, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(822, 637);
+            this.panel2.Size = new System.Drawing.Size(822, 611);
             this.panel2.TabIndex = 1;
             // 
             // label4
@@ -186,7 +188,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(153, 631);
+            this.dataGridView1.Size = new System.Drawing.Size(153, 605);
             this.dataGridView1.TabIndex = 0;
             // 
             // result
@@ -226,11 +228,35 @@
             this.radioButtonsPanel.Size = new System.Drawing.Size(140, 66);
             this.radioButtonsPanel.TabIndex = 10;
             // 
+            // bestNodeLabel
+            // 
+            this.bestNodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bestNodeLabel.AutoSize = true;
+            this.bestNodeLabel.Location = new System.Drawing.Point(150, 631);
+            this.bestNodeLabel.Name = "bestNodeLabel";
+            this.bestNodeLabel.Size = new System.Drawing.Size(58, 13);
+            this.bestNodeLabel.TabIndex = 11;
+            this.bestNodeLabel.Text = "Best node:";
+            // 
+            // bestNodeTextBox
+            // 
+            this.bestNodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bestNodeTextBox.Enabled = false;
+            this.bestNodeTextBox.Location = new System.Drawing.Point(215, 629);
+            this.bestNodeTextBox.Name = "bestNodeTextBox";
+            this.bestNodeTextBox.ReadOnly = true;
+            this.bestNodeTextBox.Size = new System.Drawing.Size(757, 20);
+            this.bestNodeTextBox.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.bestNodeTextBox);
+            this.Controls.Add(this.bestNodeLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.radioButtonsPanel);
             this.Controls.Add(this.algorithmsComboBox);
@@ -274,6 +300,8 @@
         private System.Windows.Forms.Panel radioButtonsPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAverageValue;
+        private System.Windows.Forms.Label bestNodeLabel;
+        private System.Windows.Forms.TextBox bestNodeTextBox;
     }
 }
 

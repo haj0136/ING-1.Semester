@@ -35,7 +35,7 @@ namespace CV_4_WF.Algorithms
             dimensions = 3;
             stepsCount = (int)(pathLenght / stepSize);
         }
-        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints)
+        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
         {
             ILPoints points = null;
             Population population;
@@ -169,7 +169,7 @@ namespace CV_4_WF.Algorithms
                     PaintBestNode(bestNode, plotCube, panel1, listOfPoints);
                 }
             }
-
+            PrintBestNode(bestNodeTextBox ,bestNode);
             return bestNode.To2dArray();
         }
 
@@ -186,7 +186,7 @@ namespace CV_4_WF.Algorithms
                 }
                 population.Nodes[i].X.Add((float)testFunction.getResult(Array.ConvertAll(population.Nodes[i].X.ToArray(), x => (double)x)));
             }
-             
+
             return population;
         }
 
@@ -206,6 +206,18 @@ namespace CV_4_WF.Algorithms
             plotCube.Add(bestPoint);
             panel1.Refresh();
             listOfPoints.Add(bestPoint);
+        }
+
+        private void PrintBestNode(TextBox bestNodeTextBox, Node bestNode)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bestNode.X.Count; i++)
+            {
+                sb.Append($" x{i + 1} = {bestNode.X[i]}");
+            }
+
+            bestNodeTextBox.Text = sb.ToString();
+            
         }
     }
 }

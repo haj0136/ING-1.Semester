@@ -22,7 +22,7 @@ namespace CV_4_WF.Algorithms
             alpha = 0.99f;
         }
 
-        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints)
+        public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
         {
             ILPoints points;
             float[,] population, renderNode;
@@ -86,8 +86,13 @@ namespace CV_4_WF.Algorithms
 
                 //Thread.Sleep(100);
             }
-
+            PrintBestNode(bestNodeTextBox, actualNode);
             return actualNode;
+        }
+
+        private void PrintBestNode(TextBox textBox, float[,] bestNode)
+        {
+            // evaluation value must be substracted by 500
         }
     }
 }
