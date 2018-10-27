@@ -26,5 +26,14 @@ namespace CV_4_WF.ParticleSwarm
             }
             return HelpTools.CreateRectangularArray(vectorList);
         }
+
+        public float[,] GbestTo2dArray()
+        {
+            var vectorList = new List<float[]>
+            {
+                GBest.ToArray()
+            };
+            return HelpTools.CreateRectangularArray(vectorList);
+        }
     }
 }
