@@ -34,7 +34,7 @@ namespace CV_4_WF.Algorithms
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox outPutTextBox)
         {
             Population population;
-            vMax = (testFunction.MaxX - testFunction.MinX) * 0.1f;
+            vMax = (testFunction.MaxX - testFunction.MinX) * 0.05f;
             populationPoints = new ILPoints[populationSize];
 
             population = GenerateFirstPopulation(testFunction);
@@ -94,7 +94,7 @@ namespace CV_4_WF.Algorithms
 
         private void PaintBestNode(float[,] bestNode, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints)
         {
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
 
             if(bestPoint != null)
             {
