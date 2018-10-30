@@ -48,7 +48,7 @@ namespace CV_4_WF.ParticleSwarm
             for (int i = 0; i < speed.Count; i++)
             {
                 speed[i] = speed[i] + c1 * (float)rnd.NextDouble() * (PBest[i] - X[i]) + c2 * (float)rnd.NextDouble() * (gBest[i] - X[i]);
-                if(speed[i] > vMax)
+                while(speed[i] > vMax)
                 {
                     speed[i] -= vMax;
                 }
