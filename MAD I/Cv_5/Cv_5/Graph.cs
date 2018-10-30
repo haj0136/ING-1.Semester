@@ -24,13 +24,25 @@ namespace Cv_5
             }
         }
 
+        //shlukovací efekt
         public void WriteToCSV(string filePath)
         {
+            var map = new Dictionary<int, double>();
+            var set = new HashSet<int>();
             var csv = new StringBuilder();
-            csv.Append("Id;Degree;Clustering Coeficient\n");
+            csv.Append("Degree;Average Clustering Coeficient\n");
             for (int i = 0; i < NodeList.Count; i++)
             {
-                var newLine = string.Format("{0};{1};{2}\n", NodeList[i].Id, NodeList[i].Degree, NodeList[i].ClusteringCoeficient);
+                set.Add(NodeList[i].Degree);
+            }
+            foreach (var item in set)
+            {
+                var temp = NodeList.Where(x => x.Degree == item).Select(x => x);
+                map[item] = temp.Sum(x => x.ClusteringCoeficient) / temp.Count();
+            }
+            foreach (var item in map)
+            {   
+                var newLine = string.Format("{0};{1}\n", item.Key, item.Value);
                 csv.Append(newLine);
             }
 

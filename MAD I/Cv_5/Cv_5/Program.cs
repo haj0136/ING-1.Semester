@@ -79,6 +79,7 @@ namespace Cv_5
             Console.WriteLine();
             Console.WriteLine("Average clustering coificient =  {0}", graph.AverageCC);
 
+
             graph.WriteToCSV("statistics.csv");
         }
     }
