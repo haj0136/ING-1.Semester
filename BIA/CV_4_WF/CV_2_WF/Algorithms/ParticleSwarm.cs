@@ -95,27 +95,30 @@ namespace CV_4_WF.Algorithms
         private void PaintBestNode(float[,] bestNode, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints)
         {
             //Thread.Sleep(100);
-
-            if(bestPoint != null)
+            if (panel1 != null)
             {
-                plotCube.Remove(bestPoint);
-                bestPoint.Dispose();
+
+                if (bestPoint != null)
+                {
+                    plotCube.Remove(bestPoint);
+                    bestPoint.Dispose();
+                    panel1.Refresh();
+                    listOfPoints.Remove(bestPoint);
+                }
+
+                renderNode = bestNode;
+                renderNode[0, dimensions - 1] += 150;
+                bestPoint = new ILPoints
+                {
+                    Color = Color.Pink,
+                    Positions = renderNode,
+                    Size = 12
+                };
+
+                plotCube.Add(bestPoint);
                 panel1.Refresh();
-                listOfPoints.Remove(bestPoint);
+                listOfPoints.Add(bestPoint);
             }
-
-            renderNode = bestNode;
-            renderNode[0, dimensions - 1] += 150;
-            bestPoint = new ILPoints
-            {
-                Color = Color.Pink,
-                Positions = renderNode,
-                Size = 12
-            };
-
-            plotCube.Add(bestPoint);
-            panel1.Refresh();
-            listOfPoints.Add(bestPoint);
         }
 
         private void PaintPopulation(Panel panel1, float[,] population, ILGroup plotCube, List<ILPoints> listOfPoints, int index)

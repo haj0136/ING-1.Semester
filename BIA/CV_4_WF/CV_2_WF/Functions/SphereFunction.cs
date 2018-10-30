@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CV_4_WF.Functions
 {
     class SphereFunction : AbstractFunction
     {
-        public SphereFunction() : base( -5.12f * 3, 5.12f * 3)
+        public SphereFunction() : base(-5.12f * 3, 5.12f * 3)
         {
 
         }

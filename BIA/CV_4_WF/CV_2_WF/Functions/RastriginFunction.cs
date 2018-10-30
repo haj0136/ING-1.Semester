@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CV_4_WF.Functions
 {
@@ -19,10 +15,10 @@ namespace CV_4_WF.Functions
             double sum = 0;
             for (int i = 0; i < d; i++)
             {
-                sum += Math.Pow(x[i], 2) - 10*Math.Cos(2* Math.PI* x[i]);
+                sum += Math.Pow(x[i], 2) - 10 * Math.Cos(2 * Math.PI * x[i]);
             }
 
-            return 10* d + sum;
+            return 10 * d + sum;
         }
     }
 }
