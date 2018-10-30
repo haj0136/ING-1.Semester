@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CV_4_WF.Functions
+﻿namespace CV_4_WF.Functions
 {
     public abstract class AbstractFunction
     {

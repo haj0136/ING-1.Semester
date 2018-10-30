@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CV_4_WF.Functions;
+﻿using CV_4_WF.Functions;
 using CV_4_WF.SOMA;
 using ILNumerics.Drawing;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace CV_4_WF.Algorithms
 {
@@ -43,7 +41,7 @@ namespace CV_4_WF.Algorithms
             population = GenerateFirstPopulation(testFunction);
 
             if (panel1 != null)
-                {
+            {
                 renderNode = population.To2dArray();
                 for (int j = 0; j < renderNode.GetLength(0); j++)
                 {
@@ -82,15 +80,15 @@ namespace CV_4_WF.Algorithms
                 {
                     population.Nodes[j].CalculatePRTVector(PRT);
                 }
-                
+
                 for (int j = 1; j <= stepsCount; j++)
                 {
                     for (int k = 0; k < population.Nodes.Count; k++)
                     {
-                        population.Nodes[k].CalculateNewPosition(bestNode.ToFloatArray(), stepSize* j, testFunction);
+                        population.Nodes[k].CalculateNewPosition(bestNode.ToFloatArray(), stepSize * j, testFunction);
                     }
 
-                    if(panel1 != null)
+                    if (panel1 != null)
                     {
                         Thread.Sleep(200);
                         plotCube.Remove(points);
@@ -124,7 +122,7 @@ namespace CV_4_WF.Algorithms
                     population.Nodes[j].SetBestPosition();
                 }
 
-                if(panel1 != null)
+                if (panel1 != null)
                 {
                     Thread.Sleep(800);
                     plotCube.Remove(points);
@@ -169,7 +167,7 @@ namespace CV_4_WF.Algorithms
                     PaintBestNode(bestNode, plotCube, panel1, listOfPoints);
                 }
             }
-            PrintBestNode(bestNodeTextBox ,bestNode);
+            PrintBestNode(bestNodeTextBox, bestNode);
             return bestNode.To2dArray();
         }
 
@@ -177,7 +175,7 @@ namespace CV_4_WF.Algorithms
         {
             var population = new Population();
 
-            for (int i = 0; i < populationSize ; i++)
+            for (int i = 0; i < populationSize; i++)
             {
                 population.Nodes.Add(new Node());
                 for (int j = 0; j < dimensions - 1; j++)
@@ -217,7 +215,7 @@ namespace CV_4_WF.Algorithms
             }
 
             bestNodeTextBox.Text = sb.ToString();
-            
+
         }
     }
 }
