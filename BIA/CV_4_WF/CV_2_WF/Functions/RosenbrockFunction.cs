@@ -1,15 +1,11 @@
 ﻿using CV_4_WF.Functions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CV_4_WF
 {
     class RosenbrockFunction : AbstractFunction
     {
-        public RosenbrockFunction() : base(-5f, 10f)
+        public RosenbrockFunction() : base(-10f, 10f)
         {
 
         }
