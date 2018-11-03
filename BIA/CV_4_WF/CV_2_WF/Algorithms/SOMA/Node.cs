@@ -54,22 +54,27 @@ namespace CV_4_WF.SOMA
             return HelpTools.CreateRectangularArray(vectorList);
         }
 
-        public void CalculatePRTVector(float PRT)
+        public void CalculatePRTVector(float PRT, float negativePRT)
         {
             bestPosition = new List<float>(X);
             PRTVector = new int[X.Count];
             for (int i = 0; i < X.Count; i++)
             {
-                if(rnd.NextDouble() < PRT)
+                double randomDouble = rnd.NextDouble(); 
+                if(randomDouble < PRT)
                 {
                     PRTVector[i] = 1;
+                    if(randomDouble < negativePRT)
+                    {
+                        PRTVector[i] *= -1;
+                    }
                 }
             }
         }
 
         public void CalculateNewPosition(float[] bestNode, float stepSize, AbstractFunction testFunction)
         {
-            float[] previousPosition = new float[nextPosition.Count];
+            float[] previousPosition = new float[X.Count];
             nextPosition.CopyTo(previousPosition);
             nextPosition.Clear();
 

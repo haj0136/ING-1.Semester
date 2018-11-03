@@ -19,6 +19,7 @@ namespace CV_4_WF.Algorithms
         private readonly int populationSize;
         private readonly int dimensions;
         private readonly int stepsCount;
+        private readonly float negativePRT;
 
         private float[,] renderNode;
         private ILPoints bestPoint = null;
@@ -32,6 +33,7 @@ namespace CV_4_WF.Algorithms
             populationSize = 10;
             dimensions = 3;
             stepsCount = (int)(pathLenght / stepSize);
+            negativePRT = PRT / 4;
         }
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
         {
@@ -78,7 +80,7 @@ namespace CV_4_WF.Algorithms
 
                 for (int j = 0; j < population.Nodes.Count; j++)
                 {
-                    population.Nodes[j].CalculatePRTVector(PRT);
+                    population.Nodes[j].CalculatePRTVector(PRT, negativePRT);
                 }
 
                 for (int j = 1; j <= stepsCount; j++)
