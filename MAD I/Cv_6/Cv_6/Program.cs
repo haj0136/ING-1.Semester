@@ -8,6 +8,8 @@ namespace Cv_6
 {
     class Program
     {
+        // 1. Normální rozdělení vs. realné hodnoty
+        // 2. shlukování (k-means)
         static void Main(string[] args)
         {
             DataLoader dl = new DataLoader();
@@ -27,12 +29,14 @@ namespace Cv_6
             }
 
             double[] mean = { x1 / IrisList.Count(), x2 / IrisList.Count(), x3 / IrisList.Count(), x4 / IrisList.Count() };
+            //double[] mean = {x3 / IrisList.Count() };
 
             double variance = 0;
 
             foreach (var item in IrisList)
             {
                 double[] temp = { item.Petal_lenght, item.Petal_width, item.Sepal_lenght, item.Sepal_width };
+                //double[] temp = {item.Sepal_lenght };
                 variance += Math.Pow(EuclideanDistance(temp, mean), 2);
             }
 
