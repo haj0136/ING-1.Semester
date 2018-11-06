@@ -1,0 +1,11 @@
+2 strategie:
+
+1. DE/rand/1/bin
+Vi = X1 + (X2 - X3) * F
+2. DE/ current-to-pbest/1/bin - scholar - JADE - diferencial evolution
+Vi = Xi + (Xpbest - Xi) * F + (X1 - X2) * F
+Xpbest jeden z 5ti nejlepších
+
+
+cr = 0,9
+F = 0,8

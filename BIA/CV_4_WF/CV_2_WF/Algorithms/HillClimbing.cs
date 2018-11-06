@@ -91,5 +91,9 @@ namespace CV_4_WF.Algorithms
 
             textBox.Text = sb.ToString();
         }
+
+        public void SetStrategy(int strategyIndex)
+        {
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace CV_4_WF.Algorithms
     public interface IAlgorithm
     {
         float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox outPutTextBox);
+
+        void SetStrategy(int strategyIndex);
     }
 }

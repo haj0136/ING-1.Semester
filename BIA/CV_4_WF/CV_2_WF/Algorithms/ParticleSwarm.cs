@@ -31,6 +31,11 @@ namespace CV_4_WF.Algorithms
             dimensions = 3;
             c1 = c2 = 0.2f;
         }
+
+        public void SetStrategy(int strategyIndex)
+        {
+        }
+
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox outPutTextBox)
         {
             Population population;

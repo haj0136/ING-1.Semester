@@ -11,14 +11,26 @@ namespace CV_4_WF.Algorithms
 {
     class DifferentialEvolution : IAlgorithm
     {
+        private readonly double CR;
+        private readonly double F;
+        private int strategyIndex;
+        
+
         public DifferentialEvolution()
         {
-
+            CR = 0.9;
+            F = 0.8;
         }
 
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox outPutTextBox)
         {
+
             return null;
+        }
+
+        public void SetStrategy(int strategyIndex)
+        {
+            this.strategyIndex = strategyIndex;
         }
     }
 }

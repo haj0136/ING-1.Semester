@@ -35,6 +35,12 @@ namespace CV_4_WF.Algorithms
             stepsCount = (int)(pathLenght / stepSize);
             negativePRT = PRT / 4;
         }
+
+        public void SetStrategy(int strategyIndex)
+        {
+            
+        }
+
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILGroup plotCube, Panel panel1, List<ILPoints> listOfPoints, TextBox bestNodeTextBox)
         {
             ILPoints points = null;

@@ -4,13 +4,7 @@ using ILNumerics.Drawing;
 using ILNumerics.Drawing.Plotting;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CV_4_WF
@@ -87,15 +81,20 @@ namespace CV_4_WF
             algorithmsComboBox.Items.Add("Particle Swarm");
             algorithms.Add(new Algorithms.ParticleSwarm());
             algorithmsComboBox.Items.Add("Differential Evolution");
-            algorithms.Add(new Algorithms.DifferentialEvolution());
-            
+            algorithms.Add(new DifferentialEvolution());
+
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
+            algorithmsComboBox.SelectedIndexChanged += EnableStratgiesComboBox;
         }
 
         public void InicializeStrategies()
         {
+            strategiesComboBox.Items.Add("DE/rand/1/bin");
+            strategiesComboBox.Items.Add("DE/current-to-pbest/1/bin");
 
+            strategiesComboBox.SelectedIndex = 0;
+            strategiesComboBox.SelectedIndexChanged += RefreshFunction;
         }
 
         private void RefreshFunction(object sender, EventArgs e)
@@ -104,7 +103,7 @@ namespace CV_4_WF
             var testFunction = GetSelectedFunction();
 
             var surface = new ILSurface((x, y) => (float)testFunction.getResult(x, y),
-                xmin: testFunction.MinX, xmax: testFunction.MaxX, ymax: testFunction.MaxY, ymin: testFunction.MinY, xlen:100 , ylen:100);
+                xmin: testFunction.MinX, xmax: testFunction.MaxX, ymax: testFunction.MaxY, ymin: testFunction.MinY, xlen: 100, ylen: 100);
 
             if (this.surface != null)
             {
@@ -177,14 +176,30 @@ namespace CV_4_WF
 
         private void ShowSelectedPanel(object sender, EventArgs e)
         {
-            if(radioButtonShowInGraph.Checked == true)
+            if (radioButtonShowInGraph.Checked == true)
             {
                 panel1.BringToFront();
-            } else
+            }
+            else
             {
                 panel2.BringToFront();
             }
 
+        }
+
+        private void EnableStratgiesComboBox(object sender, EventArgs e)
+        {
+            switch (algorithmsComboBox.SelectedIndex)
+            {
+                case 4:
+                    InicializeStrategies();
+                    strategiesComboBox.Enabled = true;
+                    break;
+                default:
+                    strategiesComboBox.Items.Clear();
+                    strategiesComboBox.Enabled = false;
+                    break;
+            }
         }
 
     }

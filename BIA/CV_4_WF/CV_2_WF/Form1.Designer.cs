@@ -256,7 +256,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(7, 214);
+            this.label5.Location = new System.Drawing.Point(4, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 13;
@@ -264,6 +264,8 @@
             // 
             // strategiesComboBox
             // 
+            this.strategiesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategiesComboBox.Enabled = false;
             this.strategiesComboBox.FormattingEnabled = true;
             this.strategiesComboBox.Location = new System.Drawing.Point(4, 231);
             this.strategiesComboBox.Name = "strategiesComboBox";
