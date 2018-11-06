@@ -47,6 +47,8 @@
             this.radioButtonsPanel = new System.Windows.Forms.Panel();
             this.bestNodeLabel = new System.Windows.Forms.Label();
             this.bestNodeTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.strategiesComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.iterationsNUD)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -250,11 +252,31 @@
             this.bestNodeTextBox.Size = new System.Drawing.Size(757, 20);
             this.bestNodeTextBox.TabIndex = 12;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(7, 214);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Strategy:";
+            // 
+            // strategiesComboBox
+            // 
+            this.strategiesComboBox.FormattingEnabled = true;
+            this.strategiesComboBox.Location = new System.Drawing.Point(4, 231);
+            this.strategiesComboBox.Name = "strategiesComboBox";
+            this.strategiesComboBox.Size = new System.Drawing.Size(140, 21);
+            this.strategiesComboBox.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.strategiesComboBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.bestNodeTextBox);
             this.Controls.Add(this.bestNodeLabel);
             this.Controls.Add(this.panel2);
@@ -302,6 +324,8 @@
         private System.Windows.Forms.TextBox textBoxAverageValue;
         private System.Windows.Forms.Label bestNodeLabel;
         private System.Windows.Forms.TextBox bestNodeTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox strategiesComboBox;
     }
 }
 

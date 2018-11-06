@@ -86,9 +86,16 @@ namespace CV_4_WF
             algorithms.Add(new Algorithms.SOMA());
             algorithmsComboBox.Items.Add("Particle Swarm");
             algorithms.Add(new Algorithms.ParticleSwarm());
+            algorithmsComboBox.Items.Add("Differential Evolution");
+            algorithms.Add(new Algorithms.DifferentialEvolution());
             
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
+        }
+
+        public void InicializeStrategies()
+        {
+
         }
 
         private void RefreshFunction(object sender, EventArgs e)
