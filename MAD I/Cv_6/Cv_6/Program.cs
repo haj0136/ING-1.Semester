@@ -8,7 +8,7 @@ namespace Cv_6
 {
     class Program
     {
-        // 1. Normální rozdělení vs. realné hodnoty
+        // 1. Normální rozdělení vs. empirické hodnoty
         // 2. shlukování (k-means)
         static void Main(string[] args)
         {
