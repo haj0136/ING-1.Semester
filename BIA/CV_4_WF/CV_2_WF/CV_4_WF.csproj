@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\DE\Individual.cs" />
+    <Compile Include="Algorithms\DE\Population.cs" />
     <Compile Include="Algorithms\DifferentialEvolution.cs" />
     <Compile Include="Algorithms\HillClimbing.cs" />
     <Compile Include="Algorithms\IAlgorithm.cs" />

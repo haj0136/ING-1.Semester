@@ -90,6 +90,8 @@ namespace CV_4_WF
 
         public void InicializeStrategies()
         {
+            strategiesComboBox.Items.Clear();
+
             strategiesComboBox.Items.Add("DE/rand/1/bin");
             strategiesComboBox.Items.Add("DE/current-to-pbest/1/bin");
 
@@ -130,6 +132,7 @@ namespace CV_4_WF
             bestNodeTextBox.Refresh();
 
             IAlgorithm selectedAlgorithm = GetSelectedAlgorithm();
+            selectedAlgorithm.SetStrategy(strategiesComboBox.SelectedIndex);
             float[,] lastNode = null;
 
             if (radioButtonShowInGraph.Checked == true)
