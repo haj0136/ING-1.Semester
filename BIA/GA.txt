@@ -1,0 +1,9 @@
+20 měst
+dvou-bodové křížení
+
+ABCD -- z pvního vezmu AD
+BACD
+--------------------------------
+ABCD -- mutace == A a C prohodím pokud rand bude vetsi nez nejaka konstanta
+
+práh mutace 0,1 (5% - 10%)

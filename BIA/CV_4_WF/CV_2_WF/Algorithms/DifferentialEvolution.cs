@@ -4,6 +4,7 @@ using ILNumerics.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -65,7 +66,7 @@ namespace CV_4_WF.Algorithms
                     {
                         var pBestList = new List<Individual>(population.Individuals);
                         pBestList.Sort((ind1, ind2) => ind1.X[dimensionsCount - 1].CompareTo(ind2.X[dimensionsCount - 1]));
-                        pBestList = pBestList.GetRange(0, 5);
+                        pBestList = pBestList.Take(5).ToList();
                         pBest = pBestList[rnd.Next(0,4)]; 
                     }
 
