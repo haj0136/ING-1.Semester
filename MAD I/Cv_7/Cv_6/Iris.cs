@@ -14,7 +14,7 @@ namespace Cv_6
         public double Sepal_width { get; set; }
         public double Petal_lenght { get; set; }
         public double Petal_width { get; set; }
-        public Iris_class Iris_type { get; set; }
+        public Iris_class? Iris_type { get; set; }
         public int ClusterIndex { get; set; }
 
         public Iris()
@@ -24,6 +24,7 @@ namespace Cv_6
 
         public Iris(Iris iris)
         {
+            Id = iris.Id;
             Sepal_lenght = iris.Sepal_lenght;
             Sepal_width = iris.Sepal_width;
             Petal_lenght = iris.Petal_lenght;
