@@ -25,7 +25,7 @@ namespace CV_7_WF.Algorithms
         public GeneticAlgorithm()
         {
             cities = HelpTools.LoadCSVData("../../cities.csv");
-            populationSize = 10;
+            populationSize = 50;
             rnd = new Random();
             pathLenght = cities.Count;
             MBP = 0.1f;
@@ -39,6 +39,7 @@ namespace CV_7_WF.Algorithms
         {
             panel1.Paint += Panel1_Paint;
             population = GenerateFirstPopulation();
+            population.FindBestIndividual();
             panel1.Refresh();
 
             for (int i = 0; i < iterations; i++)
@@ -52,7 +53,7 @@ namespace CV_7_WF.Algorithms
 
                     if(rnd.NextDouble() < MBP)
                     {
-                        population.Individuals[j].MakeMutation(rnd);
+                        offspring.MakeMutation(rnd);
                     }
 
                     offspring.CalculateCostValue();
@@ -63,7 +64,8 @@ namespace CV_7_WF.Algorithms
                     }
                 }
 
-
+                population.FindBestIndividual();
+                outPutTextBox.Text = population.BestIndividual.CostValue.ToString();
                 panel1.Refresh();
             }
 
@@ -77,7 +79,6 @@ namespace CV_7_WF.Algorithms
             var graphics = e.Graphics;
 
             var brush = new SolidBrush(Color.Black);
-            var bestPath = population.GetBestIndividual();
             for (
                 int i = 0; i < cities.Count; i++)
             {
@@ -86,15 +87,17 @@ namespace CV_7_WF.Algorithms
 
             var pen = new Pen(Color.Red, 2);
 
-            for (int i = 0; i < bestPath.Path.Count - 1; i++)
+            for (int i = 0; i < population.BestIndividual.Path.Count - 1; i++)
             {
-                var p1 = new Point(bestPath.Path[i].X[0] * 2 + 5, bestPath.Path[i].X[1] * 2 + 5);
-                var p2 = new Point(bestPath.Path[i + 1].X[0] * 2 + 5, bestPath.Path[i + 1].X[1] * 2 + 5);
+                var p1 = new Point(population.BestIndividual.Path[i].X[0] * 2 + 5, population.BestIndividual.Path[i].X[1] * 2 + 5);
+                var p2 = new Point(population.BestIndividual.Path[i + 1].X[0] * 2 + 5, population.BestIndividual.Path[i + 1].X[1] * 2 + 5);
 
                 graphics.DrawLine(pen, p1, p2);
             }
 
-            graphics.DrawLine(pen, bestPath.Path[pathLenght - 1].X[0] * 2 + 5, bestPath.Path[pathLenght - 1].X[1] * 2 + 5, bestPath.Path[0].X[0] * 2 + 5, bestPath.Path[0].X[1] * 2 + 5);
+            graphics.DrawLine(pen, population.BestIndividual.Path[pathLenght - 1].X[0] * 2 + 5,
+                population.BestIndividual.Path[pathLenght - 1].X[1] * 2 + 5, population.BestIndividual.Path[0].X[0] * 2 + 5,
+                population.BestIndividual.Path[0].X[1] * 2 + 5);
 
         }
 
@@ -115,7 +118,7 @@ namespace CV_7_WF.Algorithms
 
             return population;
         }
-
+        
         private City UniqueRandomCity(List<City> usedCities)
         {
             City randomCity;
@@ -162,7 +165,7 @@ namespace CV_7_WF.Algorithms
                     if (!offspring.Path.Contains(p2.Path[j]))
                     {
                         offspring.Path[i] = p2.Path[j];
-                        break;
+                        //break;
                     }
                 }
             }

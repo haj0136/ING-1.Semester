@@ -9,13 +9,14 @@ namespace CV_7_WF.Algorithms.GA
     public class Population
     {
         public List<Individual> Individuals { get; set; }
+        public Individual BestIndividual { get; set; }
 
         public Population()
         {
             Individuals = new List<Individual>();
         }
 
-        public Individual GetBestIndividual()
+        public void FindBestIndividual()
         {
             var bestIndividual = new Individual
             {
@@ -26,12 +27,12 @@ namespace CV_7_WF.Algorithms.GA
             {
                 if (Individuals[i].CostValue < bestIndividual.CostValue)
                 {
-                    bestIndividual.Path = Individuals[i].Path;
+                    bestIndividual.Path = new List<City>(Individuals[i].Path);
                     bestIndividual.CostValue = Individuals[i].CostValue;
                 }
             }
 
-            return bestIndividual;
+            BestIndividual = bestIndividual;
         }
 
     }
