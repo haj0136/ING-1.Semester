@@ -1,0 +1,7 @@
+mravenců tolik kolik je měst
+
+(delta)Tnij = (1-p) * Tij(t) + (Suma)(delta)Tij(t) <- Q/Lk * r <- 0.4
+p = 0.6
+
+[0.1, 0.1, 0.2 , 0.6] pravdepodobnosti pro cesty
+[0.1, 0.2, 0.4, 1] kumulativni cestnost

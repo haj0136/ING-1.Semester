@@ -46,8 +46,12 @@ namespace CV_7_WF.Algorithms
             {
                 for (int j = 0; j < population.Individuals.Count; j++)
                 {
-                    int p1 = rnd.Next(population.Individuals.Count - 1);
+                    int p1 = j;
                     int p2 = rnd.Next(population.Individuals.Count - 1);
+                    while(p1 == p2)
+                    {
+                        p2 = rnd.Next(population.Individuals.Count - 1);
+                    }
 
                     Individual offspring = Crossover(population.Individuals[p1], population.Individuals[p2]);
 
