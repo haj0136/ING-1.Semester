@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\AntColony.cs" />
     <Compile Include="Algorithms\DE\Individual.cs" />
     <Compile Include="Algorithms\DE\Population.cs" />
     <Compile Include="Algorithms\DifferentialEvolution.cs" />
@@ -110,6 +111,8 @@
   <ItemGroup>
     <Content Include="TextFile1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Algorithms\AntColony\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

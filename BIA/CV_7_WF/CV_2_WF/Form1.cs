@@ -84,6 +84,8 @@ namespace CV_4_WF
             algorithms.Add(new DifferentialEvolution());
             algorithmsComboBox.Items.Add("Genetic Algorithm");
             algorithms.Add(new GeneticAlgorithm());
+            algorithmsComboBox.Items.Add("Ant Colony");
+            algorithms.Add(new AntColony());
 
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
@@ -108,12 +110,14 @@ namespace CV_4_WF
 
             if(panel1.Controls.Count < 1)
             {
+                functionsComboBox.Enabled = true;
                 panel1.Controls.Add(panel);
             }
             // Remove ILNumrics panel if GA is selected
-            if (algorithmsComboBox.SelectedIndex == 5 && panel1.Controls.Count > 0)
+            if ((algorithmsComboBox.SelectedIndex == 5 || algorithmsComboBox.SelectedIndex == 6) && panel1.Controls.Count > 0)
             {
                 panel1.Controls.Clear();
+                functionsComboBox.Enabled = false;
             }
 
             var surface = new ILSurface((x, y) => (float)testFunction.getResult(x, y),
