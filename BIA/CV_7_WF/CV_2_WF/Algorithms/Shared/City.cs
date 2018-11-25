@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CV_7_WF.Algorithms.GA
+namespace CV_7_WF.Algorithms.Shared
 {
     public class City
     {

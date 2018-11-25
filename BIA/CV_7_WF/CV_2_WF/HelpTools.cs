@@ -1,4 +1,4 @@
-﻿using CV_7_WF.Algorithms.GA;
+﻿using CV_7_WF.Algorithms.Shared;
 using System;
 using System.Collections.Generic;
 using System.IO;

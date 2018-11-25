@@ -157,7 +157,7 @@ namespace CV_4_WF
             }
             else
             {
-                List<float> results = new List<float>();
+                var results = new List<float>();
                 for (int i = 0; i < 30; i++)
                 {
                     lastNode = selectedAlgorithm.StartAlgorithm(testFunction, iterations, plotCube, null, listOfPoints, bestNodeTextBox);

@@ -1,8 +1,5 @@
-﻿using System;
+﻿using CV_7_WF.Algorithms.Shared;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CV_7_WF.Algorithms.GA
 {

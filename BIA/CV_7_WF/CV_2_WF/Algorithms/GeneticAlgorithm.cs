@@ -2,6 +2,7 @@
 using CV_4_WF.Algorithms;
 using CV_4_WF.Functions;
 using CV_7_WF.Algorithms.GA;
+using CV_7_WF.Algorithms.Shared;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,10 +38,12 @@ namespace CV_7_WF.Algorithms
 
         public float[,] StartAlgorithm(AbstractFunction testFunction, int iterations, ILNumerics.Drawing.ILGroup plotCube, Panel panel1, List<ILNumerics.Drawing.ILPoints> listOfPoints, TextBox outPutTextBox)
         {
-            panel1.Paint += Panel1_Paint;
+            if (panel1 != null)
+                panel1.Paint += Panel1_Paint;
             population = GenerateFirstPopulation();
             population.FindBestIndividual();
-            panel1.Refresh();
+            if (panel1 != null)
+                panel1.Refresh();
 
             for (int i = 0; i < iterations; i++)
             {
@@ -48,21 +51,21 @@ namespace CV_7_WF.Algorithms
                 {
                     int p1 = j;
                     int p2 = rnd.Next(population.Individuals.Count - 1);
-                    while(p1 == p2)
+                    while (p1 == p2)
                     {
                         p2 = rnd.Next(population.Individuals.Count - 1);
                     }
 
                     Individual offspring = Crossover(population.Individuals[p1], population.Individuals[p2]);
 
-                    if(rnd.NextDouble() < MBP)
+                    if (rnd.NextDouble() < MBP)
                     {
                         offspring.MakeMutation(rnd);
                     }
 
                     offspring.CalculateCostValue();
 
-                    if( offspring.CostValue < population.Individuals[j].CostValue)
+                    if (offspring.CostValue < population.Individuals[j].CostValue)
                     {
                         population.Individuals[j] = offspring;
                     }
@@ -70,11 +73,15 @@ namespace CV_7_WF.Algorithms
 
                 population.FindBestIndividual();
                 outPutTextBox.Text = population.BestIndividual.CostValue.ToString();
-                panel1.Refresh();
+                if (panel1 != null)
+                    panel1.Refresh();
             }
 
-            panel1.Paint -= Panel1_Paint;
-            return null;
+            if (panel1 != null)
+                panel1.Paint -= Panel1_Paint;
+            float[,] result = new float[1, 3];
+            result[0, 2] = (float)population.BestIndividual.CostValue;
+            return result;
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
@@ -122,11 +129,11 @@ namespace CV_7_WF.Algorithms
 
             return population;
         }
-        
+
         private City UniqueRandomCity(List<City> usedCities)
         {
             City randomCity;
-            List<City> remainingCities = cities.Except(usedCities).ToList();
+            var remainingCities = cities.Except(usedCities).ToList();
             randomCity = remainingCities[rnd.Next(remainingCities.Count - 1)];
 
             usedCities.Add(randomCity);
@@ -138,12 +145,12 @@ namespace CV_7_WF.Algorithms
         {
             int bound1 = rnd.Next(pathLenght - 1);
             int bound2 = rnd.Next(pathLenght - 1);
-            while(bound2 == bound1)
+            while (bound2 == bound1)
             {
                 bound2 = rnd.Next(pathLenght - 1);
             }
 
-            if(bound2 < bound1)
+            if (bound2 < bound1)
             {
                 int temp = bound1;
                 bound1 = bound2;
