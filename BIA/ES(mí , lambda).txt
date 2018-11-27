@@ -4,8 +4,14 @@ mí + lambda
 
 ES(mí, lambda)
 X+ N(o, sigma)
+NP = 20 jedinců
+nahodne vygenerovaní
 rodič + normalní rozdělení(cislo , sigma)
-20 jedinců
-ke každému rodiči potomka
+ke každému rodiči jednoho potomka
 pokud je lepsi nez rodič tak ho nahradime
-pamatujeme si kolik jedincu jsme vylepsily  a kdyz je to min nez 1/5 tak menime sigma
+f(y)
+pamatujeme si kolik jedincu jsme vylepsily  a kdyz je to min nebo vic nez 1/5 tak menime sigma
+
+druhá verze
+pro každeho rodiče jednoho potomka
+prijmeme i horší řešení
