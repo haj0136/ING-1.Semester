@@ -1,0 +1,11 @@
+ES(1 + 1)
+rodič + potomek
+mí + lambda
+
+ES(mí, lambda)
+X+ N(o, sigma)
+rodič + normalní rozdělení(cislo , sigma)
+20 jedinců
+ke každému rodiči potomka
+pokud je lepsi nez rodič tak ho nahradime
+pamatujeme si kolik jedincu jsme vylepsily  a kdyz je to min nez 1/5 tak menime sigma

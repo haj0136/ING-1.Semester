@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ILNumerics">
-      <HintPath>.\ILNumerics.dll</HintPath>
+    <Reference Include="ILNumerics, Version=3.3.3.0, Culture=neutral, PublicKeyToken=e00823afcff9a03a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\IlNumerics\ILNumerics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
