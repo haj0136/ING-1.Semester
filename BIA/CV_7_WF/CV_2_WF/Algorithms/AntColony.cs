@@ -17,9 +17,9 @@ namespace CV_7_WF.Algorithms
         private readonly Random rnd;
         private readonly int populationSize;
         private readonly int pathLenght;
-        private const float alpha = 0.2f;
-        private const float beta = 0.6f;
-        private const float rho = 0.6f;
+        private const float alpha = 3f; //0.2
+        private const float beta = 2f; //0.6
+        private const float rho = 0.1f; // 0.3
         private float t0 = 0.2f;
         private Dictionary<(City, City), float> pheromoneTable;
         private Ant bestResult;
@@ -89,7 +89,7 @@ namespace CV_7_WF.Algorithms
                 float result = (1 - rho) * edge.Value;
                 if (edge.Equals((ant.Path[ant.Path.Count - 2], ant.Path[ant.Path.Count - 1])))
                 {
-                    result += (20 / (float)ant.CostValue) * 0.4f;
+                    result += (2 / (float)ant.CostValue) * 0.4f;
                 }
 
                 ant.PheromoneTable[edge.Key] = result;
