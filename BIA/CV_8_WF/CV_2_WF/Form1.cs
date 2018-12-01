@@ -1,6 +1,7 @@
 ﻿using CV_4_WF.Algorithms;
 using CV_4_WF.Functions;
 using CV_7_WF.Algorithms;
+using CV_8_WF.Algorithms;
 using ILNumerics.Drawing;
 using ILNumerics.Drawing.Plotting;
 using System;
@@ -86,6 +87,9 @@ namespace CV_4_WF
             algorithms.Add(new GeneticAlgorithm());
             algorithmsComboBox.Items.Add("Ant Colony");
             algorithms.Add(new AntColony());
+            algorithmsComboBox.Items.Add("Evolitonary Strategies");
+            algorithms.Add(new EvolutionaryStrategies());
+            
 
             algorithmsComboBox.SelectedIndex = 0;
             algorithmsComboBox.SelectedIndexChanged += RefreshFunction;
