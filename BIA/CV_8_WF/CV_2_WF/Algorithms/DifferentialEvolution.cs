@@ -49,7 +49,7 @@ namespace CV_4_WF.Algorithms
                 {
 
                     int r1, r2, r3 = -1;
-                    List<int> randomList = new List<int>
+                    var randomList = new List<int>
                     {
                         j
                     };

@@ -56,6 +56,7 @@
     <Compile Include="Algorithms\DE\Individual.cs" />
     <Compile Include="Algorithms\DE\Population.cs" />
     <Compile Include="Algorithms\DifferentialEvolution.cs" />
+    <Compile Include="Algorithms\EvolutionaryStrategies.cs" />
     <Compile Include="Algorithms\Shared\City.cs" />
     <Compile Include="Algorithms\GA\Individual.cs" />
     <Compile Include="Algorithms\GA\Population.cs" />
@@ -114,6 +115,8 @@
   <ItemGroup>
     <Content Include="TextFile1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Algorithms\ES\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
