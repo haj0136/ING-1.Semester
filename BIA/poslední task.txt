@@ -1,0 +1,27 @@
+NSGA ?
+nemusíme dělat crowding
+
+počatecni populace
+k tomu vygenerujeme stejny pocet potomku
+roztřídíme do front
+a tvoříme novou populaci (od první fronty - tím eliminujeme nejhorší jedince)
+
+zkouska
+rozdělení funkcí, unimodalní, multimodální
+jeden extrém, více extrému
+jaké máme typy problému,
+lokální prohledávání - hill climbing, tabu search(hc + fronta díky které se můžeme dostat z lokálního extrému), simulované žíhání (blind search není lokální prohledávání !!!)
+evoluční alg - diff ev - generace mutacniho vektoru, jak se lisi od GA, co je zkusebni vektor, mutacni konstanta, co se zmeni kdyz ji zvednu, prijmame stejne dobre resení a proc
+             - GA - puvodne byl urcte pro binarni cisla, jak se resi TSP
+             - particle swarm - gbest, pbest, jak se generuje rychlost, k cemu slouzi vnitrní váha
+             - SOMA - jake jsou druhy, ktera je vyhodno a ktera ne a proc, ohodnocení ucelove funkce, jak se lisi SOMA a Particle swarm, ktery kdy pouzít
+             
+ symoblická regrese - k cemu slouzí a 3 druhy, co je to kodon, jak se snima pocita
+                    - analyticke programovani- GFS co to je
+
+ paretův set
+ 
+ ant colony(lokální prepocítávání feromonu) vs ant systém (váhy se prepocitavají na konci)
+ 
+ NSGA - spíš ne
+ musíme vědět k čemu slouží víceúčelová optimalizace - lze to sloužít do jedne učelové funkce(jaké jsou výhody a nevhody) nebo tořešit pomicí paretova přístupu
