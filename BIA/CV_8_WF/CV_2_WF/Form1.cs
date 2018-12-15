@@ -89,6 +89,8 @@ namespace CV_4_WF
             algorithms.Add(new AntColony());
             algorithmsComboBox.Items.Add("Evolitonary Strategies");
             algorithms.Add(new EvolutionaryStrategies());
+            algorithmsComboBox.Items.Add("NSGA-II");
+            algorithms.Add(new NSGAII());
             
 
             algorithmsComboBox.SelectedIndex = 0;
@@ -118,7 +120,7 @@ namespace CV_4_WF
                 panel1.Controls.Add(panel);
             }
             // Remove ILNumrics panel if GA is selected
-            if ((algorithmsComboBox.SelectedIndex == 5 || algorithmsComboBox.SelectedIndex == 6) && panel1.Controls.Count > 0)
+            if ((algorithmsComboBox.SelectedIndex == 5 || algorithmsComboBox.SelectedIndex == 6 || algorithmsComboBox.SelectedIndex == 8) && panel1.Controls.Count > 0)
             {
                 panel1.Controls.Clear();
                 functionsComboBox.Enabled = false;

@@ -57,6 +57,8 @@
     <Compile Include="Algorithms\DE\Population.cs" />
     <Compile Include="Algorithms\DifferentialEvolution.cs" />
     <Compile Include="Algorithms\EvolutionaryStrategies.cs" />
+    <Compile Include="Algorithms\NSGAII.cs" />
+    <Compile Include="Algorithms\NSGA\Population.cs" />
     <Compile Include="Algorithms\Shared\City.cs" />
     <Compile Include="Algorithms\GA\Individual.cs" />
     <Compile Include="Algorithms\GA\Population.cs" />
@@ -76,6 +78,8 @@
     </Compile>
     <Compile Include="Functions\AbstractFunction.cs" />
     <Compile Include="Functions\AckleyFunction.cs" />
+    <Compile Include="Functions\F1.cs" />
+    <Compile Include="Functions\F2.cs" />
     <Compile Include="Functions\RastriginFunction.cs" />
     <Compile Include="Functions\SchwefelFunction.cs" />
     <Compile Include="Functions\SphereFunction.cs" />

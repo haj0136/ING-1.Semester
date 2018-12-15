@@ -90,8 +90,7 @@ namespace CV_7_WF.Algorithms
             var graphics = e.Graphics;
 
             var brush = new SolidBrush(Color.Black);
-            for (
-                int i = 0; i < cities.Count; i++)
+            for (int i = 0; i < cities.Count; i++)
             {
                 graphics.FillEllipse(brush, cities[i].X[0] * 2, cities[i].X[1] * 2, 10, 10);
             }

@@ -1,4 +1,4 @@
-NSGA ?
+NSGA II
 nemusíme dělat crowding
 
 počatecni populace
