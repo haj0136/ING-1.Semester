@@ -15,7 +15,7 @@ namespace CV_9
 
         public double AverageCC { get; set; }
 
-        private Random rnd;
+        private readonly Random rnd;
 
         public Graph(int nodes)
         {
@@ -33,12 +33,12 @@ namespace CV_9
             {
                 for (int j = i + 1; j < NodeList.Count; j++)
                 {
-                    if (i != j && !NodeList[i].Neighbours.Contains(NodeList[j]))
+                    if (i != j && !NodeList[i].Neighbors.Contains(NodeList[j]))
                     {
                         if (rnd.NextDouble() < p)
                         {
-                            NodeList[i].Neighbours.Add(NodeList[j]);
-                            NodeList[j].Neighbours.Add(NodeList[i]);
+                            NodeList[i].Neighbors.Add(NodeList[j]);
+                            NodeList[j].Neighbors.Add(NodeList[i]);
                         }
                     }
                 }
@@ -59,7 +59,7 @@ namespace CV_9
             foreach (var item in set)
             {
                 var temp = NodeList.Where(x => x.Degree == item).Select(x => x);
-                map[item] = temp.Sum(x => x.ClusteringCoeficient) / temp.Count();
+                map[item] = temp.Sum(x => x.ClusteringCoefficient) / temp.Count();
             }
             foreach (var item in map)
             {
@@ -77,7 +77,7 @@ namespace CV_9
             {
                 for (int j = i + 1; j < NodeList.Count; j++)
                 {
-                    if (i != j && !NodeList[i].Neighbours.Contains(NodeList[j]))
+                    if (i != j && NodeList[i].Neighbors.Contains(NodeList[j]))
                     {
                         csv.Append($"{NodeList[i].Id};{NodeList[j].Id}\n");
                     }

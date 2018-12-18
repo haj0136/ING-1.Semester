@@ -7,32 +7,27 @@ namespace CV_9
     {
         static void Main(string[] args)
         {
-            const int m0 = 10;
+            const int m0 = 3;
             const int m = 3;
-            const double P = 0.2;
-            const int numberOfNodes = 1000;
-            Random rnd = new Random();
+            const int numberOfNodes = 2000;
+            var rnd = new Random();
 
             var graph = new Graph(m0);
 
             for (int i = 0; i < graph.NodeList.Count; i++)
             {
-                while (graph.NodeList[i].Neighbours.Count < 2)
+                for (int j = 0; j < graph.NodeList.Count; j++)
                 {
-                    int randomNumber = rnd.Next(graph.NodeList.Count - 1);
-                    while (randomNumber == i)
-                    {
-                        randomNumber = rnd.Next(graph.NodeList.Count - 1);
-                    }
-                    graph.NodeList[i].Neighbours.Add(graph.NodeList[randomNumber]);
+                    if(i == j)
+                        continue;
+                    graph.NodeList[i].Neighbors.Add(graph.NodeList[j]);
                 }
             }
 
             var nodes = new List<int>();
             foreach (var node in graph.NodeList)
             {
-                node.Degree = node.Neighbours.Count;
-                Console.WriteLine(node.Degree);
+                node.Degree = node.Neighbors.Count;
                 for (int i = 0; i < node.Degree; i++)
                 {
                     nodes.Add(node.Id);
@@ -43,24 +38,25 @@ namespace CV_9
             for (int i = 0; i < numberOfNodes; i++)
             {
                 var node = new GraphNode(m0 + 1 + i);
-                var usedNodes = new List<int>();
+                var usedNodesIds = new List<int>();
                 for (int j = 0; j < m; j++)
                 {
                     int randomIndex = rnd.Next(nodes.Count - 1);
-                    while (usedNodes.Contains(randomIndex))
+                    while (usedNodesIds.Contains(nodes[randomIndex]))
                     {
                         randomIndex = rnd.Next(nodes.Count - 1);
                     }
 
                     GraphNode newNeighbour = graph.NodeList.Find(x => x.Id == nodes[randomIndex]);
-                    node.Neighbours.Add(newNeighbour);
-                    newNeighbour.Neighbours.Add(node);
+                    node.Neighbors.Add(newNeighbour);
+                    newNeighbour.Neighbors.Add(node);
+                    usedNodesIds.Add(nodes[randomIndex]);
                 }
 
                 for (int j = 0; j < m; j++)
                 {
                     nodes.Add(node.Id);
-                    nodes.Add(node.Neighbours[j].Id);
+                    nodes.Add(node.Neighbors[j].Id);
                 }
 
                 graph.NodeList.Add(node);
